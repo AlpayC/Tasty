@@ -30,30 +30,34 @@ const Details = () => {
   }, [idDish]);
 
   return (
-    <section
-      className="detail-site-container"
-      style={{ backgroundImage: `url(${mealData?.strMealThumb})` }}
-    >
-      <BackBtn2 />
+    <section className="detail-page">
+      <div
+        className="detail-hero"
+        style={{ backgroundImage: `url(${mealData?.strMealThumb})` }}
+      >
+        <BackBtn2 />
+      </div>
+
       <section
         className={
-          themeDetailPage ? "detail-section-dark" : "detail-section-light"
+          themeDetailPage
+            ? "detail-content detail-content-dark"
+            : "detail-content detail-content-light"
         }
       >
-        <div className="swipe-line-container">
-          <div className="swipe-line"></div>
-        </div>
-
         <div className="favorite-btn-wrapper">
           <FavoriteButton meal={mealData} />
         </div>
 
         <h1 className="meal-title">{mealData?.strMeal}</h1>
-        <h2 className="meal-category-name">{mealData?.strCategory}</h2>
-        <h3 className="meal-area-name">{mealData?.strArea}</h3>
+        <p className="meal-meta">
+          {mealData?.strCategory}
+          {mealData?.strArea ? ` · ${mealData.strArea}` : ""}
+        </p>
         <Toggle />
-        <Nav />
       </section>
+
+      <Nav />
     </section>
   );
 };
