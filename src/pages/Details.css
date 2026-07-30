@@ -7,12 +7,45 @@
 
 .detail-hero {
   position: relative;
-  height: 40vh;
-  min-height: 24rem;
+  height: 36vh;
+  min-height: 23rem;
+  background-color: var(--meal-categorie-color);
+}
+
+/* Unscharfe, formatfüllende Kopie als Backdrop (kaschiert die niedrige Auflösung) */
+.detail-hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden; /* hält den Blur-Rand im Hero, ohne das Menü zu beschneiden */
+}
+
+.detail-hero-bg-img {
+  position: absolute;
+  inset: -10%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--meal-categorie-color);
+  filter: blur(18px) brightness(0.88);
+  transform: scale(1.1);
+}
+
+.detail-hero .Btn2-Wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+/* Scharfes Meal-Bild – klein genug, um nahe der nativen 700px-Auflösung zu bleiben */
+.detail-hero-img {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 66%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 1.8rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 12px 32px;
+  z-index: 1;
 }
 
 .detail-content {

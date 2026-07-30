@@ -31,11 +31,21 @@ const Details = () => {
 
   return (
     <section className="detail-page">
-      <div
-        className="detail-hero"
-        style={{ backgroundImage: `url(${mealData?.strMealThumb})` }}
-      >
+      <div className="detail-hero">
+        <div className="detail-hero-bg">
+          <div
+            className="detail-hero-bg-img"
+            style={{ backgroundImage: `url(${mealData?.strMealThumb})` }}
+          />
+        </div>
         <BackBtn2 />
+        {mealData?.strMealThumb && (
+          <img
+            className="detail-hero-img"
+            src={mealData.strMealThumb}
+            alt={mealData?.strMeal}
+          />
+        )}
       </div>
 
       <section
