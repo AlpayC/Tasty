@@ -1,15 +1,14 @@
 import { useContext, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Nav from "../components/Nav";
+import BackBtn from "../components/BackBtn";
 import { FavoritesContext, NavContext } from "../context/Context";
 import Heart from "../images/nav-icon/Heart.svg";
-import ArrowRight from "../images/arrow-right.svg";
 import "./Favorites.css";
 
 const Favorites = () => {
   const { favorites, removeFavorite } = useContext(FavoritesContext);
   const { setNav } = useContext(NavContext);
-  const navigate = useNavigate();
 
   useEffect(() => {
     setNav("like");
@@ -17,24 +16,13 @@ const Favorites = () => {
 
   return (
     <section className="favorites-page">
-      <header className="favorites-header">
-        <button
-          type="button"
-          className="favorites-back"
-          onClick={() => navigate(-1)}
-          aria-label="Zurück"
-        >
-          <img src={ArrowRight} alt="" />
-        </button>
-        <h1 className="favorites-title">Favorites</h1>
-        <span className="favorites-header-spacer" />
-      </header>
+      <BackBtn title="Favorites" />
 
       {favorites.length === 0 ? (
         <div className="favorites-empty">
           <img src={Heart} alt="" />
-          <p>Noch keine Favoriten.</p>
-          <span>Tippe bei einem Rezept auf das Herz, um es hier zu speichern.</span>
+          <p>No favorites yet.</p>
+          <span>Tap the heart on a recipe to save it here.</span>
         </div>
       ) : (
         <section className="favorites-list">
@@ -62,7 +50,7 @@ const Favorites = () => {
                 type="button"
                 className="favorite-remove"
                 onClick={() => removeFavorite(meal.idMeal)}
-                aria-label={`${meal.strMeal} aus Favoriten entfernen`}
+                aria-label={`Remove ${meal.strMeal} from favorites`}
               >
                 ×
               </button>

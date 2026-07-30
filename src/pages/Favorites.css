@@ -3,38 +3,6 @@
   padding: 0 0 12rem 0;
 }
 
-/* Header */
-.favorites-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2.5rem 2rem 1rem 2rem;
-}
-
-.favorites-back {
-  width: 4rem;
-  height: 4rem;
-  display: grid;
-  place-items: center;
-  background-color: var(--white-color);
-  border-radius: 1.2rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  cursor: pointer;
-}
-
-.favorites-back img {
-  width: 1.8rem;
-  transform: rotate(180deg);
-}
-
-.favorites-title {
-  font-size: 2.2rem;
-}
-
-.favorites-header-spacer {
-  width: 4rem;
-}
-
 /* Liste */
 .favorites-list {
   display: flex;
@@ -127,8 +95,7 @@
 }
 
 /* Dark Mode */
-.dark .favorite-card,
-.dark .favorites-back {
+.dark .favorite-card {
   background-color: #0f1a1f;
 }
 

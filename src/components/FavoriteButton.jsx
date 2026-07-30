@@ -16,9 +16,7 @@ const FavoriteButton = ({ meal }) => {
       type="button"
       className={active ? "favorite-btn active" : "favorite-btn"}
       onClick={() => toggleFavorite(meal)}
-      aria-label={
-        active ? "Aus Favoriten entfernen" : "Zu Favoriten hinzufügen"
-      }
+      aria-label={active ? "Remove from favorites" : "Add to favorites"}
       aria-pressed={active}
     >
       <img src={active ? HeartActive : Heart} alt="" />
