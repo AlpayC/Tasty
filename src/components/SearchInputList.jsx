@@ -21,16 +21,24 @@ const SearchInputList = () => {
   }, []);
   //   #Fetch aller Produkte nach Suchbegriff und immer dann, wenn der User etwas im Inputfeld eingibt
   useEffect(() => {
-    fetch(
-      `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInputAllProducts}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setSearchedData(data.meals);
-      })
-      .catch((error) => {
-        console.log("Fehler beim Laden", error);
-      });
+    const controller = new AbortController();
+    const timer = setTimeout(() => {
+      fetch(
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInputAllProducts}`,
+        { signal: controller.signal }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setSearchedData(data.meals);
+        })
+        .catch((error) => {
+          if (error.name !== "AbortError") console.log("Fehler beim Laden", error);
+        });
+    }, 300);
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
   }, [searchInputAllProducts]);
   return (
     <>
