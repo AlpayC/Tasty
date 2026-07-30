@@ -4,6 +4,14 @@
   margin-top: -1%;
 }
 
+.area-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 6rem 2rem;
+  font-size: 1.6rem;
+  color: var(--p-tag-searchField-color);
+}
+
 /* @media only screen and (min-width: 567px) and (max-width: 991px){
   .area-item-list{
     grid-template-columns: repeat(4, 1fr);  

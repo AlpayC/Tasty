@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoadingSection from "./components/LoadingSection";
+import { DEFAULT_AREA } from "./data/areas";
 import { lazy, Suspense, useEffect, useState } from "react";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -25,7 +26,7 @@ function App() {
   const [loading, setLoading] = useState();
   const [categoryFilter, setCategoryFilter] = useState("Beef");
   const [searchInputCategory, setSearchInputCategory] = useState("");
-  const [filteredArea, setFilteredArea] = useState("American");
+  const [filteredArea, setFilteredArea] = useState(DEFAULT_AREA);
   const [searchInputArea, setSearchInputArea] = useState("");
   const [searchInputAllProducts, setsearchInputAllProducts] = useState("");
   const [nav, setNav] = useState("home");
