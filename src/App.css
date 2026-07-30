@@ -99,3 +99,25 @@ a {
 h1 {
   font-size: 1.75rem;
 }
+
+/* Desktop Container Optimierung */
+@media only screen and (min-width: 992px) {
+  .home-page,
+  .search-input-page,
+  .search-areas-page,
+  .search-category-page {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 4rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .home-page,
+  .search-input-page,
+  .search-areas-page,
+  .search-category-page {
+    max-width: 1600px;
+  }
+}

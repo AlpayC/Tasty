@@ -167,3 +167,53 @@
     );
   }
 }
+
+/* Desktop Layout - Side-by-Side */
+@media only screen and (min-width: 992px) {
+  .detail-site-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background-size: 50% 100%;
+    background-position: left center;
+    padding-top: 80px;
+  }
+
+  .detail-section-light,
+  .detail-section-dark {
+    position: relative;
+    width: 50%;
+    max-height: unset;
+    height: calc(100vh - 80px);
+    margin-left: auto;
+    border-radius: 2rem 0 0 2rem;
+    padding: 3rem 3rem 3rem 3rem;
+    overflow-y: auto;
+  }
+
+  .swipe-line-container {
+    display: none;
+  }
+
+  .meal-title {
+    font-size: 3.2rem;
+    padding: 1rem 2rem;
+  }
+
+  .meal-category-name,
+  .meal-area-name {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .detail-section-light,
+  .detail-section-dark {
+    width: 45%;
+    padding: 4rem;
+  }
+
+  .meal-title {
+    font-size: 3.6rem;
+  }
+}
