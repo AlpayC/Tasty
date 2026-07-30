@@ -16,7 +16,7 @@ const SearchCategoryList = () => {
     },[categoryFilter])
 
     useEffect(() => {
-        if(searchInputCategory != "" && searchInputCategory != undefined){
+        if(searchInputCategory !== "" && searchInputCategory !== undefined){
             let filteredData = [...categoryData].filter((meal) => meal.strMeal.toLowerCase().includes(searchInputCategory.toLowerCase()))
             console.log(filteredData);
             setCategoryData(filteredData) 
@@ -32,7 +32,7 @@ const SearchCategoryList = () => {
         <>
         <section className="category-item-list">
             {categoryData ? (
-                categoryData.map((meal, index) => {return <SearchCategoryItem meal={meal} key={index} />})
+                categoryData.map((meal, index) => {return <SearchCategoryItem meal={meal} key={meal.idMeal} />})
             ) : (
                 <p>loading data..</p>
             )}

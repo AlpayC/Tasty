@@ -36,7 +36,7 @@ const SearchInputList = () => {
     <>
       <section className="search-item-list">
         {searchedData ? (
-          searchedData.map((meal, index) => {return <SearchInputItem meal={meal} key={index} />})
+          searchedData.map((meal, index) => {return <SearchInputItem meal={meal} key={meal.idMeal} />})
         ) : (
           <p>loading data...</p>
         )}
