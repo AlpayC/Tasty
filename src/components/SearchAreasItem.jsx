@@ -23,7 +23,7 @@ const SearchAreasItem = (props) => {
     <NavLink className='product-item-link' to={`/detail/${props.meal.idMeal}`} >
       <article className="area-meal-item" >
           <div className="areaImageBox">
-            <img src={props.meal.strMealThumb} alt={props.meal.strMeal} />
+            <img src={props.meal.strMealThumb} alt={props.meal.strMeal} loading="lazy" />
           </div>
           <div className='meal-name-wrapper'>
         <p className='meal-name-area' style={isMobile ? { display: 'flex' } : { display: 'none' }}>{shortMeal}</p>

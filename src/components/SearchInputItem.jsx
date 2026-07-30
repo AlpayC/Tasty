@@ -24,7 +24,7 @@ const SearchInputItem = (props) => {
   return (
       <NavLink to={`/detail/${props.meal.idMeal}`} >
         <article className="search-meal-item" value={props.meal.idMeal}>
-          <img className="search-meal-img" src={props.meal.strMealThumb} alt={props.meal.strMeal} />
+          <img className="search-meal-img" src={props.meal.strMealThumb} alt={props.meal.strMeal} loading="lazy" />
           <div className="search-meal-item-text">
             <h2 className='input-meal-name' style={isMobile ? { display: 'block' } : { display: 'none' }}>{longMeal}</h2>
             <h2 className='input-meal-name' style={!isMobile ? { display: 'block' } : { display: 'none' }}>{shortMeal}</h2>
