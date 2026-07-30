@@ -3,6 +3,7 @@ import Ingredients from "../components/Ingredients";
 import Instructions from "../components/Instructions";
 import Nav from "../components/Nav";
 import Toggle from "../components/Toggle";
+import FavoriteButton from "../components/FavoriteButton";
 import "./Details.css";
 import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
@@ -41,6 +42,10 @@ const Details = () => {
       >
         <div className="swipe-line-container">
           <div className="swipe-line"></div>
+        </div>
+
+        <div className="favorite-btn-wrapper">
+          <FavoriteButton meal={mealData} />
         </div>
 
         <h1 className="meal-title">{mealData?.strMeal}</h1>

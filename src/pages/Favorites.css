@@ -1,0 +1,141 @@
+.favorites-page {
+  min-height: 100vh;
+  padding: 0 0 12rem 0;
+}
+
+/* Header */
+.favorites-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5rem 2rem 1rem 2rem;
+}
+
+.favorites-back {
+  width: 4rem;
+  height: 4rem;
+  display: grid;
+  place-items: center;
+  background-color: var(--white-color);
+  border-radius: 1.2rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+}
+
+.favorites-back img {
+  width: 1.8rem;
+  transform: rotate(180deg);
+}
+
+.favorites-title {
+  font-size: 2.2rem;
+}
+
+.favorites-header-spacer {
+  width: 4rem;
+}
+
+/* Liste */
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.favorite-card {
+  position: relative;
+  width: clamp(30rem, 90vw, 60rem);
+  background-color: var(--white-color);
+  border-radius: 2rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.favorite-card-link {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem;
+  color: var(--font-color);
+}
+
+.favorite-card-img {
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
+  border-radius: 1.4rem;
+  flex-shrink: 0;
+}
+
+.favorite-card-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.favorite-card-text p {
+  font-size: 1.4rem;
+  color: var(--p-tag-searchField-color);
+}
+
+.favorite-remove {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--page-bg-color);
+  color: var(--font-color);
+  font-size: 2rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.favorite-remove:hover {
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+
+/* Leerer Zustand */
+.favorites-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 8rem 3rem;
+  color: var(--p-tag-searchField-color);
+}
+
+.favorites-empty img {
+  width: 5rem;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.favorites-empty p {
+  font-size: 1.8rem;
+  color: var(--font-color);
+}
+
+.favorites-empty span {
+  font-size: 1.4rem;
+  max-width: 26rem;
+}
+
+/* Dark Mode */
+.dark .favorite-card,
+.dark .favorites-back {
+  background-color: #0f1a1f;
+}
+
+.dark .favorite-card-link {
+  color: var(--white-color);
+}
+
+.dark .favorites-empty p {
+  color: var(--white-color);
+}

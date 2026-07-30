@@ -6,7 +6,9 @@ import SearchInput from "./pages/SearchInput";
 import SearchAreas from "./pages/SearchAreas";
 import SearchCategory from "./pages/SearchCategory";
 import Details from "./pages/Details";
+import Favorites from "./pages/Favorites";
 import LoadingSection from "./components/LoadingSection";
+import FavoritesProvider from "./context/FavoritesProvider";
 import { useEffect, useState } from "react";
 import {
   CategoryFilterContext,
@@ -58,6 +60,7 @@ function App() {
                     <CategoryFilterContext.Provider
                       value={{ categoryFilter, setCategoryFilter }}
                     >
+                      <FavoritesProvider>
                       <BrowserRouter>
                         <Routes>
                           <Route
@@ -81,8 +84,10 @@ function App() {
                           />
 
                         <Route path="/detail/:id" element={<Details />} />
+                          <Route path="/favorites" element={<Favorites />} />
     </Routes>
     </BrowserRouter>
+    </FavoritesProvider>
     </CategoryFilterContext.Provider>
     </SearchbarCategoryContext.Provider>
     </SearchTermAllProductsContext.Provider>

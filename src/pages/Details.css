@@ -217,3 +217,11 @@
     font-size: 3.6rem;
   }
 }
+
+/* Favoriten-Button auf der Detailseite */
+.favorite-btn-wrapper {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 3;
+}
