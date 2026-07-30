@@ -47,7 +47,7 @@ const Nav = () => {
             <img src={Heart} alt="like-Button" />
           )}
         </NavLink>
-        <NavLink onClick={() => setNav("profile")}>
+        <NavLink onClick={() => setNav("profile")} to="/profile">
           {nav == "profile" ? (
             <img src={ProfileActive} alt="Profile-Button" />
           ) : (

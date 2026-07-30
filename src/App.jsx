@@ -6,6 +6,7 @@ import SearchInput from "./pages/SearchInput";
 import SearchAreas from "./pages/SearchAreas";
 import SearchCategory from "./pages/SearchCategory";
 import Details from "./pages/Details";
+import Profile from "./pages/Profile";
 import LoadingSection from "./components/LoadingSection";
 import { useEffect, useState } from "react";
 import {
@@ -81,6 +82,7 @@ function App() {
                           />
 
                         <Route path="/detail/:id" element={<Details />} />
+                          <Route path="/profile" element={<Profile />} />
     </Routes>
     </BrowserRouter>
     </CategoryFilterContext.Provider>
