@@ -24,6 +24,42 @@
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+/* Ladezustand: kein Gradient, Logo-Loader mittig auf grauer Fläche */
+.RandomMealBox.loading {
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.RandomMealBox.loading::before {
+  display: none;
+}
+
+.RandomMealLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.RandomMealLoaderImg {
+  width: 42%;
+  max-width: 16rem;
+  animation: randommeal-pulse 1.3s ease-in-out infinite;
+}
+
+@keyframes randommeal-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
 /* Dunkler Verlauf oben, damit der weiße Text lesbar bleibt */
 .RandomMealBox::before {
   content: "";
