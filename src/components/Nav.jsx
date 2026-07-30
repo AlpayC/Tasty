@@ -40,20 +40,20 @@ const Nav = () => {
             <img src={Search} alt="Search-Button" />
           )}
         </NavLink>
-        <NavLink onClick={() => setNav("like")}>
+        <button type="button" onClick={() => setNav("like")}>
           {nav == "like" ? (
             <img src={HeartActive} alt="like-Button" />
           ) : (
             <img src={Heart} alt="like-Button" />
           )}
-        </NavLink>
-        <NavLink onClick={() => setNav("profile")}>
+        </button>
+        <button type="button" onClick={() => setNav("profile")}>
           {nav == "profile" ? (
             <img src={ProfileActive} alt="Profile-Button" />
           ) : (
             <img src={Profile} alt="Profile-Button" />
           )}
-        </NavLink>
+        </button>
 
         <div onClick={toggleTheme}>
           <Darkmode />
