@@ -54,3 +54,51 @@ nav a {
     padding: 13px 20px 13px 20px;
   }
 }
+
+/* Desktop Navigation - oben fixiert */
+@media only screen and (min-width: 992px) {
+  .wrapper-nav {
+    position: fixed;
+    top: 0;
+    bottom: unset;
+    left: 0;
+    right: 0;
+    border-radius: 0 0 20px 20px;
+    height: auto;
+    box-shadow: rgba(100, 100, 111, 0.15) 0px 4px 20px 0px;
+    z-index: 1000;
+  }
+
+  .navBar {
+    justify-content: center;
+    gap: 8rem;
+    padding: 15px 40px;
+  }
+
+  nav svg {
+    width: 28px;
+  }
+
+  .block {
+    display: none;
+  }
+
+  nav a {
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+
+  nav a:hover {
+    background-color: rgba(60, 160, 167, 0.1);
+  }
+}
+
+/* Gro\u00dfe Desktop Screens */
+@media only screen and (min-width: 1600px) {
+  .navBar {
+    gap: 12rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
