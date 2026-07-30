@@ -4,6 +4,7 @@ import { FilteredAreaContext } from "../context/Context";
 import "./BackBtn2.css";
 import ArrowRight from "../images/arrow-right.svg";
 import DetailPageMenu from "./DetailPageMenu";
+import { DEFAULT_AREA } from "../data/areas";
 
 const BackBtn2 = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +13,7 @@ const BackBtn2 = () => {
   const navigate = useNavigate();
   //   Funktion, die bei Onclick ausgelöst wird. Dabei wird der globale Context für Area zurückgesetzt, damit der User nicht die vorherige Area Filter aktiv hat
   const goOneBack = () => {
-    setFilteredArea("American");
+    setFilteredArea(DEFAULT_AREA);
     // Die Navigation geht immer um ein Schritt zurück
     navigate(-1);
   };

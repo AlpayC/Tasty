@@ -8,3 +8,4 @@ export const SearchTermAllProductsContext = createContext();
 export const CategoryFilterContext = createContext();
 export const SearchbarCategoryContext = createContext();
 export const NavContext = createContext();
+export const FavoritesContext = createContext();

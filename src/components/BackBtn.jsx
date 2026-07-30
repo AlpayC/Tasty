@@ -4,6 +4,7 @@ import { FilteredAreaContext, ThemeContext } from "../context/Context";
 import "./BackBtn.css";
 import Arrow from "../images/BackBtn/Arrow.svg";
 import ArrowRight from "../images/arrow-right.svg";
+import { DEFAULT_AREA } from "../data/areas";
 
 const BackBtn = ({ title = "Search" }) => {
   const { setFilteredArea } = useContext(FilteredAreaContext);
@@ -13,7 +14,7 @@ const BackBtn = ({ title = "Search" }) => {
   const navigate = useNavigate();
   //   Funktion, die bei Onclick ausgelöst wird. Dabei wird der globale Context für Area zurückgesetzt, damit der User nicht die vorherige Area Filter aktiv hat
   const goOneBack = () => {
-    setFilteredArea("American");
+    setFilteredArea(DEFAULT_AREA);
     // Die Navigation geht immer um ein Schritt zurück
     navigate(-1);
   };
