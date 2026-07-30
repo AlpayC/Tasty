@@ -1,8 +1,7 @@
 import { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import Nav from "../components/Nav";
+import BackBtn from "../components/BackBtn";
 import { NavContext } from "../context/Context";
-import ArrowRight from "../images/arrow-right.svg";
 import "./Profile.css";
 
 const STORAGE_KEY = "tasty-profile";
@@ -19,7 +18,6 @@ const loadProfile = () => {
 
 const Profile = () => {
   const { setNav } = useContext(NavContext);
-  const navigate = useNavigate();
 
   const stored = loadProfile();
   const [name, setName] = useState(stored.name);
@@ -39,21 +37,10 @@ const Profile = () => {
 
   return (
     <section className="profile-page">
-      <header className="profile-header">
-        <button
-          type="button"
-          className="profile-back"
-          onClick={() => navigate(-1)}
-          aria-label="Zurück"
-        >
-          <img src={ArrowRight} alt="" />
-        </button>
-        <h1 className="profile-title">Profile</h1>
-        <span className="profile-header-spacer" />
-      </header>
+      <BackBtn title="Profile" />
 
       <div className="profile-avatar-display">{avatar}</div>
-      <p className="profile-greeting">{name ? `Hi, ${name}!` : "Willkommen!"}</p>
+      <p className="profile-greeting">{name ? `Hi, ${name}!` : "Welcome!"}</p>
 
       <form className="profile-form" onSubmit={handleSave}>
         <label className="profile-label" htmlFor="profile-name">
@@ -65,7 +52,7 @@ const Profile = () => {
           type="text"
           value={name}
           onChange={(event) => setName(event.target.value)}
-          placeholder="Dein Name"
+          placeholder="Your name"
         />
 
         <span className="profile-label">Avatar</span>
@@ -89,7 +76,7 @@ const Profile = () => {
         </div>
 
         <button type="submit" className="profile-save">
-          {saved ? "Gespeichert ✓" : "Speichern"}
+          {saved ? "Saved ✓" : "Save"}
         </button>
       </form>
 

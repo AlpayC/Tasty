@@ -6,39 +6,6 @@
   align-items: center;
 }
 
-/* Header */
-.profile-header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2.5rem 2rem 1rem 2rem;
-}
-
-.profile-back {
-  width: 4rem;
-  height: 4rem;
-  display: grid;
-  place-items: center;
-  background-color: var(--white-color);
-  border-radius: 1.2rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  cursor: pointer;
-}
-
-.profile-back img {
-  width: 1.8rem;
-  transform: rotate(180deg);
-}
-
-.profile-title {
-  font-size: 2.2rem;
-}
-
-.profile-header-spacer {
-  width: 4rem;
-}
-
 /* Avatar-Anzeige */
 .profile-avatar-display {
   width: 11rem;
@@ -132,7 +99,6 @@
 
 /* Dark Mode */
 .dark .profile-avatar-display,
-.dark .profile-back,
 .dark .profile-input,
 .dark .profile-avatar-option {
   background-color: #0f1a1f;
