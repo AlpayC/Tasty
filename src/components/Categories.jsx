@@ -25,7 +25,7 @@ const Categories = () => {
                 categories.map((category, index) => {return (
                 <Link key={index} to='/search/category' >
                     <article onClick={() => setCategoryFilter(category.strCategory)} key={index} className="category-card">
-                    <img src={category.strCategoryThumb} alt={category.strCategory} />
+                    <img src={category.strCategoryThumb} alt={category.strCategory} loading="lazy" />
                     <h5>{category.strCategory}</h5>
                     </article>
                 </Link>

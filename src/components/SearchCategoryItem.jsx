@@ -22,7 +22,7 @@ const SearchCategoryItem = (props) => {
     <NavLink className='product-item-link' to={`/detail/${props.meal.idMeal}`}>
     <article className='search-category-item'>
       <div className='categoryImageBox'>
-        <img src={props.meal.strMealThumb} alt={props.meal.strMeal} />
+        <img src={props.meal.strMealThumb} alt={props.meal.strMeal} loading="lazy" />
       </div>
     <div className='meal-name-wrapper'>
         <p className='meal-name-category' style={isMobile ? { display: 'flex' } : { display: 'none' }}>{shortMeal}</p>
