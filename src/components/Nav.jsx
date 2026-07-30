@@ -47,13 +47,13 @@ const Nav = () => {
             <img src={Heart} alt="like-Button" />
           )}
         </NavLink>
-        <button type="button" onClick={() => setNav("profile")}>
+        <NavLink onClick={() => setNav("profile")} to="/profile">
           {nav === "profile" ? (
             <img src={ProfileActive} alt="Profile-Button" />
           ) : (
             <img src={Profile} alt="Profile-Button" />
           )}
-        </button>
+        </NavLink>
 
         <div onClick={toggleTheme}>
           <Darkmode />

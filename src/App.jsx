@@ -12,6 +12,7 @@ const SearchAreas = lazy(() => import("./pages/SearchAreas"));
 const SearchCategory = lazy(() => import("./pages/SearchCategory"));
 const Details = lazy(() => import("./pages/Details"));
 const Favorites = lazy(() => import("./pages/Favorites"));
+const Profile = lazy(() => import("./pages/Profile"));
 import {
   CategoryFilterContext,
   SearchbarCategoryContext,
@@ -88,6 +89,7 @@ function App() {
 
                         <Route path="/detail/:id" element={<Details />} />
                           <Route path="/favorites" element={<Favorites />} />
+                          <Route path="/profile" element={<Profile />} />
     </Routes>
     </Suspense>
     </BrowserRouter>
