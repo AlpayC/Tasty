@@ -6,33 +6,33 @@ import SearchCategoryItem from './SearchCategoryItem';
 const SearchCategoryList = () => {
     const {categoryFilter, setCategoryFilter} = useContext(CategoryFilterContext)
     const { searchInputCategory, setSearchInputCategory } = useContext(SearchbarCategoryContext)
-    const [categoryData, setCategoryData] = useState([])
+    const [filteredData, setFilteredData] = useState([])
+    const [originalData, setOriginalData] = useState([])
 
     useEffect(() => {
         fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryFilter}`)
         .then((res) => res.json())
-        .then((data) => setCategoryData(data.meals))
+        .then((data) => {
+            setOriginalData(data.meals)
+            setFilteredData(data.meals)
+        })
         .catch((err) => console.log(`Fehler: ${err}`))
     },[categoryFilter])
 
     useEffect(() => {
-        if(searchInputCategory != "" && searchInputCategory != undefined){
-            let filteredData = [...categoryData].filter((meal) => meal.strMeal.toLowerCase().includes(searchInputCategory.toLowerCase()))
-            console.log(filteredData);
-            setCategoryData(filteredData) 
+        if(searchInputCategory){
+            const filteredResults = originalData.filter((meal) => meal.strMeal.toLowerCase().includes(searchInputCategory.toLowerCase()))
+            setFilteredData(filteredResults)
         } else {
-            fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryFilter}`)
-            .then((res) => res.json())
-            .then((data) => setCategoryData(data.meals))
-            .catch((err) => console.log(`Fehler: ${err}`))
+            setFilteredData(originalData)
         }
-    },[searchInputCategory])
-    
-    return ( 
+    },[searchInputCategory, originalData])
+
+    return (
         <>
         <section className="category-item-list">
-            {categoryData ? (
-                categoryData.map((meal, index) => {return <SearchCategoryItem meal={meal} key={index} />})
+            {filteredData ? (
+                filteredData.map((meal, index) => {return <SearchCategoryItem meal={meal} key={index} />})
             ) : (
                 <p>loading data..</p>
             )}
