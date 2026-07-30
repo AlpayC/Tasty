@@ -8,35 +8,32 @@ const SearchInputList = () => {
   const { searchInputAllProducts, setsearchInputAllProducts } = useContext(
     SearchTermAllProductsContext
   );
-  //   #Fetch aller Produkte nachdem die Seite normal geladen wurde
-  useEffect(() => {
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=`)
-      .then((response) => response.json())
-      .then((data) => {
-        setSearchedData(data.meals);
-      })
-      .catch((error) => {
-        console.log("Fehler beim Laden", error);
-      });
-  }, []);
   //   #Fetch aller Produkte nach Suchbegriff und immer dann, wenn der User etwas im Inputfeld eingibt
   useEffect(() => {
-    fetch(
-      `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInputAllProducts}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setSearchedData(data.meals);
-      })
-      .catch((error) => {
-        console.log("Fehler beim Laden", error);
-      });
+    const controller = new AbortController();
+    const timer = setTimeout(() => {
+      fetch(
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInputAllProducts}`,
+        { signal: controller.signal }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setSearchedData(data.meals);
+        })
+        .catch((error) => {
+          if (error.name !== "AbortError") console.log("Fehler beim Laden", error);
+        });
+    }, 300);
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
   }, [searchInputAllProducts]);
   return (
     <>
       <section className="search-item-list">
         {searchedData ? (
-          searchedData.map((meal, index) => {return <SearchInputItem meal={meal} key={index} />})
+          searchedData.map((meal, index) => {return <SearchInputItem meal={meal} key={meal.idMeal} />})
         ) : (
           <p>loading data...</p>
         )}

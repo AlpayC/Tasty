@@ -29,6 +29,7 @@ const RandomMeal = () => {
                 className="RandomDishImg"
                 src={randomDish?.strMealThumb}
                 alt={randomDish?.strMeal}
+                loading="lazy"
               />
               <h2 className="RandomDishName">{randomDish?.strMeal}</h2>
               <div className="RandomDishCatAr">

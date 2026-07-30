@@ -1,15 +1,17 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Onboarding from "./pages/Onboarding";
-import SearchInput from "./pages/SearchInput";
-import SearchAreas from "./pages/SearchAreas";
-import SearchCategory from "./pages/SearchCategory";
-import Details from "./pages/Details";
-import Favorites from "./pages/Favorites";
 import LoadingSection from "./components/LoadingSection";
 import FavoritesProvider from "./context/FavoritesProvider";
-import { useEffect, useState } from "react";
+import { DEFAULT_AREA } from "./data/areas";
+import { lazy, Suspense, useEffect, useState } from "react";
+
+const Home = lazy(() => import("./pages/Home"));
+const Onboarding = lazy(() => import("./pages/Onboarding"));
+const SearchInput = lazy(() => import("./pages/SearchInput"));
+const SearchAreas = lazy(() => import("./pages/SearchAreas"));
+const SearchCategory = lazy(() => import("./pages/SearchCategory"));
+const Details = lazy(() => import("./pages/Details"));
+const Favorites = lazy(() => import("./pages/Favorites"));
 import {
   CategoryFilterContext,
   SearchbarCategoryContext,
@@ -26,7 +28,7 @@ function App() {
   const [loading, setLoading] = useState();
   const [categoryFilter, setCategoryFilter] = useState("Beef");
   const [searchInputCategory, setSearchInputCategory] = useState("");
-  const [filteredArea, setFilteredArea] = useState("American");
+  const [filteredArea, setFilteredArea] = useState(DEFAULT_AREA);
   const [searchInputArea, setSearchInputArea] = useState("");
   const [searchInputAllProducts, setsearchInputAllProducts] = useState("");
   const [nav, setNav] = useState("home");
@@ -35,7 +37,7 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 800);
   }, []);
 
   return (
@@ -62,6 +64,7 @@ function App() {
                     >
                       <FavoritesProvider>
                       <BrowserRouter>
+                        <Suspense fallback={<LoadingSection />}>
                         <Routes>
                           <Route
                             path="/"
@@ -86,6 +89,7 @@ function App() {
                         <Route path="/detail/:id" element={<Details />} />
                           <Route path="/favorites" element={<Favorites />} />
     </Routes>
+    </Suspense>
     </BrowserRouter>
     </FavoritesProvider>
     </CategoryFilterContext.Provider>

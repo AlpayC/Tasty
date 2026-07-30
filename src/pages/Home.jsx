@@ -7,13 +7,14 @@ import Search from '../components/Search';
 import './Home.css'
 import { NavContext, FilteredAreaContext } from "../context/Context";
 import { useContext, useEffect } from "react";
+import { DEFAULT_AREA } from "../data/areas";
 
 const Home = () => {
     const {nav, setNav} = useContext(NavContext);
     const { filteredArea, setFilteredArea } = useContext(FilteredAreaContext);
 
     useEffect(() => {
-      setFilteredArea("American");
+      setFilteredArea(DEFAULT_AREA);
         setNav("home")
     },[])
 

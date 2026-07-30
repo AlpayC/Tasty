@@ -27,7 +27,7 @@ const Details = () => {
       .catch((error) => {
         console.error("Fehler beim Fetch", error);
       });
-  }, []);
+  }, [idDish]);
 
   return (
     <section
