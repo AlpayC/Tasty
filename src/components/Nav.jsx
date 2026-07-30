@@ -40,13 +40,13 @@ const Nav = () => {
             <img src={Search} alt="Search-Button" />
           )}
         </NavLink>
-        <button type="button" onClick={() => setNav("like")}>
+        <NavLink onClick={() => setNav("like")} to="/favorites">
           {nav === "like" ? (
             <img src={HeartActive} alt="like-Button" />
           ) : (
             <img src={Heart} alt="like-Button" />
           )}
-        </button>
+        </NavLink>
         <button type="button" onClick={() => setNav("profile")}>
           {nav === "profile" ? (
             <img src={ProfileActive} alt="Profile-Button" />

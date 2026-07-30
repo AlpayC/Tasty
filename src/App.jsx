@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoadingSection from "./components/LoadingSection";
+import FavoritesProvider from "./context/FavoritesProvider";
 import { DEFAULT_AREA } from "./data/areas";
 import { lazy, Suspense, useEffect, useState } from "react";
 
@@ -10,6 +11,7 @@ const SearchInput = lazy(() => import("./pages/SearchInput"));
 const SearchAreas = lazy(() => import("./pages/SearchAreas"));
 const SearchCategory = lazy(() => import("./pages/SearchCategory"));
 const Details = lazy(() => import("./pages/Details"));
+const Favorites = lazy(() => import("./pages/Favorites"));
 import {
   CategoryFilterContext,
   SearchbarCategoryContext,
@@ -60,6 +62,7 @@ function App() {
                     <CategoryFilterContext.Provider
                       value={{ categoryFilter, setCategoryFilter }}
                     >
+                      <FavoritesProvider>
                       <BrowserRouter>
                         <Suspense fallback={<LoadingSection />}>
                         <Routes>
@@ -84,9 +87,11 @@ function App() {
                           />
 
                         <Route path="/detail/:id" element={<Details />} />
+                          <Route path="/favorites" element={<Favorites />} />
     </Routes>
     </Suspense>
     </BrowserRouter>
+    </FavoritesProvider>
     </CategoryFilterContext.Provider>
     </SearchbarCategoryContext.Provider>
     </SearchTermAllProductsContext.Provider>

@@ -6,7 +6,7 @@ import Arrow from "../images/BackBtn/Arrow.svg";
 import ArrowRight from "../images/arrow-right.svg";
 import { DEFAULT_AREA } from "../data/areas";
 
-const BackBtn = () => {
+const BackBtn = ({ title = "Search" }) => {
   const { setFilteredArea } = useContext(FilteredAreaContext);
   const { theme, setTheme } = useContext(ThemeContext)
 
@@ -28,7 +28,7 @@ const BackBtn = () => {
         </button>
       </div>
       <div className="search-headline">
-        <h2>Search</h2>
+        <h2>{title}</h2>
       </div>
       <div className="placeholder"></div>
     </div>
