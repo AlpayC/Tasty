@@ -27,33 +27,33 @@ const Nav = () => {
     <section className="wrapper-nav">
       <nav className="navBar">
         <NavLink onClick={() => setNav("home")} to="/home">
-          {nav == "home" ? (
+          {nav === "home" ? (
             <img src={HomeActive} alt="Home-Button" />
           ) : (
             <img src={Home} alt="Home-Button" />
           )}
         </NavLink>
         <NavLink onClick={() => setNav("search")} to="/search/input">
-          {nav == "search" ? (
+          {nav === "search" ? (
             <img src={SearchActive} alt="Search-Button" />
           ) : (
             <img src={Search} alt="Search-Button" />
           )}
         </NavLink>
-        <NavLink onClick={() => setNav("like")}>
-          {nav == "like" ? (
+        <button type="button" onClick={() => setNav("like")}>
+          {nav === "like" ? (
             <img src={HeartActive} alt="like-Button" />
           ) : (
             <img src={Heart} alt="like-Button" />
           )}
-        </NavLink>
-        <NavLink onClick={() => setNav("profile")}>
-          {nav == "profile" ? (
+        </button>
+        <button type="button" onClick={() => setNav("profile")}>
+          {nav === "profile" ? (
             <img src={ProfileActive} alt="Profile-Button" />
           ) : (
             <img src={Profile} alt="Profile-Button" />
           )}
-        </NavLink>
+        </button>
 
         <div onClick={toggleTheme}>
           <Darkmode />

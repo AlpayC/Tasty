@@ -23,9 +23,9 @@ const Categories = () => {
             <figure className='categories-wrapper'>
             {categories ? (
                 categories.map((category, index) => {return (
-                <Link key={index} to='/search/category' >
-                    <article onClick={() => setCategoryFilter(category.strCategory)} key={index} className="category-card">
-                    <img src={category.strCategoryThumb} alt={category.strCategory} />
+                <Link key={category.idCategory} to='/search/category' >
+                    <article onClick={() => setCategoryFilter(category.strCategory)} key={category.idCategory} className="category-card">
+                    <img src={category.strCategoryThumb} alt={category.strCategory} loading="lazy" />
                     <h5>{category.strCategory}</h5>
                     </article>
                 </Link>
