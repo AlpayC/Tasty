@@ -32,7 +32,7 @@ const SearchCategoryList = () => {
         <>
         <section className="category-item-list">
             {filteredData ? (
-                filteredData.map((meal, index) => {return <SearchCategoryItem meal={meal} key={index} />})
+                filteredData.map((meal) => {return <SearchCategoryItem meal={meal} key={meal.idMeal} />})
             ) : (
                 <p>loading data..</p>
             )}

@@ -33,7 +33,7 @@ const AreasBtnSection = (props) => {
         <section className="area-btn-container">
           {areaNamesAll?.map((item, index) => (
             <button
-              key={index}
+              key={item.strArea}
               onClick={filterByArea}
               value={item.strArea}
               className={filteredArea === item.strArea ? "active" : ""}
