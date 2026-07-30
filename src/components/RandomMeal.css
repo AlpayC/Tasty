@@ -1,6 +1,6 @@
 .RandomMealSection {
   width: 100%;
-  margin: 0 0 2rem 0;
+  margin: 2rem 0;
 }
 
 .RandomDishTitle {
@@ -14,7 +14,7 @@
 .RandomMealBox {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 2 / 1;
   border-radius: 2rem;
   overflow: hidden;
   background-color: var(--meal-categorie-color);
