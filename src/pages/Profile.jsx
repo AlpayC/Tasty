@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import Nav from "../components/Nav";
 import BackBtn from "../components/BackBtn";
-import { NavContext } from "../context/Context";
+import { NavContext, ThemeContext, ThemeDetailContext } from "../context/Context";
 import "./Profile.css";
 
 const STORAGE_KEY = "tasty-profile";
@@ -18,6 +18,13 @@ const loadProfile = () => {
 
 const Profile = () => {
   const { setNav } = useContext(NavContext);
+  const { theme, setTheme } = useContext(ThemeContext);
+  const { setThemeDetailPage } = useContext(ThemeDetailContext);
+
+  const toggleTheme = () => {
+    setTheme((darkMode) => !darkMode);
+    setThemeDetailPage((darkMode) => !darkMode);
+  };
 
   const stored = loadProfile();
   const [name, setName] = useState(stored.name);
@@ -79,6 +86,20 @@ const Profile = () => {
           {saved ? "Saved ✓" : "Save"}
         </button>
       </form>
+
+      <div className="profile-setting-row">
+        <span className="profile-label">Dark Mode</span>
+        <button
+          type="button"
+          role="switch"
+          aria-checked={theme}
+          aria-label="Toggle dark mode"
+          className={theme ? "profile-switch on" : "profile-switch"}
+          onClick={toggleTheme}
+        >
+          <span className="profile-switch-knob" />
+        </button>
+      </div>
 
       <Nav />
     </section>

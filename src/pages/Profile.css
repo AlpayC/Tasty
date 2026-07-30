@@ -97,6 +97,49 @@
   opacity: 0.9;
 }
 
+/* Dark-Mode-Schalter (Einstellung) */
+.profile-setting-row {
+  width: clamp(28rem, 88vw, 42rem);
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-setting-row .profile-label {
+  margin: 0 0 0 0.5rem;
+}
+
+.profile-switch {
+  flex-shrink: 0;
+  width: 5.2rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  background-color: var(--toggle-bg-color);
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.profile-switch.on {
+  background-color: var(--main-color);
+}
+
+.profile-switch-knob {
+  position: absolute;
+  top: 0.3rem;
+  left: 0.3rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background-color: var(--white-color);
+  transition: transform 0.2s ease;
+}
+
+.profile-switch.on .profile-switch-knob {
+  transform: translateX(2.2rem);
+}
+
 /* Dark Mode */
 .dark .profile-avatar-display,
 .dark .profile-input,
