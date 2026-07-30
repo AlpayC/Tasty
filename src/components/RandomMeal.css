@@ -1,199 +1,83 @@
 .RandomMealSection {
-  padding: 10px;
-  width: 80%;
-  height: 15%;
-  margin-bottom: 2rem;
+  width: 100%;
+  margin: 2rem 0;
 }
 
 .RandomDishTitle {
   font-family: "montserrat";
-  font-size: clamp(2rem, -4.2000000000000055rem + 10.000000000000009vw, 2.2rem);
-  margin-bottom: 2%;
-  color: var(--font-btnBg-color);
+  font-size: clamp(1.8rem, 4.8vw, 2.2rem);
+  margin-bottom: 1rem;
+  color: inherit;
 }
+
+/* Card: Meal-Bild füllt die komplette Fläche, kompaktes Format */
 .RandomMealBox {
-  padding: 2%;
-  border-radius: 2vh;
-  margin: 0 auto;
-  background-image: url("../images/CardBck.svg");
-  background-position: no-repeat;
-  background-position: center;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  border-radius: 2rem;
   overflow: hidden;
+  background-color: var(--meal-categorie-color);
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.RandomDishImg {
-  display: -webkit-box;
-  margin-left: auto;
-  width: 35%;
-  border-radius: 3vh;
-  margin: 3% 3% 5% auto;
+
+/* Dunkler Verlauf oben, damit der weiße Text lesbar bleibt */
+.RandomMealBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.25) 40%,
+    rgba(0, 0, 0, 0) 70%
+  );
+}
+
+/* Info oben links */
+.RandomMealTextBox {
+  position: relative;
+  z-index: 1;
+  padding: 1.6rem 1.8rem;
 }
 
 .RandomDishName {
   font-family: "montserrat";
-  margin: -10% 0% 3% 3%;
   color: var(--white-color);
-  width: 60%;
-  font-size: clamp(1.8rem, 1.4073298429319372rem + 1.6753926701570678vw, 2rem);
+  font-size: clamp(1.8rem, 4.8vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 0.7rem 0;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
 }
+
 .RandomDishCatAr {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: last baseline;
-  margin-bottom: 3%;
+  align-items: center;
+  gap: 1.4rem;
 }
 
 .RandomDishCatPoint {
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: sticky;
-  margin-left: 3%;
+  gap: 0.6rem;
+}
+
+.Ellipse {
+  width: 0.7rem;
+  height: 0.7rem;
 }
 
 .RandomDishCat,
 .RandomDishAr {
   font-family: "montserrat";
-  font-size: clamp(
-    1.4rem,
-    1.0073298429319366rem + 1.6753926701570696vw,
-    1.6rem
-  );
-  margin-left: 6%;
-  color: rgba(255, 255, 255, 0.555);
-}
-.RandomDishAr {
-  text-align: left;
-  margin-right: 6%;
-}
-
-@media only screen and (min-width: 567px) {
-  .RandomMealSection {
-    width: 90%;
-  }
-  /* .RandomDishTitle {
-    font-size: clamp(2rem, 2.5vw, 3rem);
-  } */
-  .RandomDishName {
-    /* font-size: clamp(1.6rem, 2.5vw, 2rem); */
-    margin: -3% 0 0 3%;
-  }
-  .RandomDishImg {
-    width: 28%;
-  }
-  .RandomDishCatAr {
-    padding-top: 2%;
-  }
-  /* .RandomDishCatAr p {
-    font-size: clamp(1.4rem, 2.3vw, 1.8rem);
-  } */
-}
-
-@media only screen and (min-width: 992px) {
-  .RandomMealSection {
-    width: 90%;
-    padding: 1%;
-  }
-  /* .RandomDishTitle {
-    font-size: clamp(2.6rem, 2.5vw, 3.2rem);
-  } */
-  .RandomDishName {
-    /* font-size: clamp(2.5rem, 2.5vw, 3.2rem); */
-    margin: -7% 0% 0% 3%;
-  }
-  .RandomDishImg {
-    width: 23%;
-    padding-top: 1%;
-  }
-  .RandomDishCatAr {
-    padding-top: 2%;
-  }
-  /* .RandomDishCatAr p {
-    font-size: clamp(1.6rem, 2.3vw, 2.4rem);
-  } */
-}
-
-@media only screen and (min-width: 567px) and (max-width: 991px) {
-  .RandomMealSection {
-    width: 90%;
-  }
-  .RandomDishTitle {
-    font-size: clamp(
-      2.2rem,
-      -3.999999999999992rem + 9.999999999999986vw,
-      2.4rem
-    );
-  }
-  .RandomDishName {
-    font-size: clamp(
-      2rem,
-      -4.2000000000000055rem + 10.000000000000009vw,
-      2.2rem
-    );
-    margin: -3% 0 0 3%;
-  }
-  .RandomDishImg {
-    width: 28%;
-  }
-  .RandomDishCat {
-    font-size: clamp(
-      1.6rem,
-      1.2073298429319372rem + 1.6753926701570678vw,
-      1.8rem
-    );
-  }
-  .RandomDishCatAr {
-    padding-top: 2%;
-  }
-  .RandomDishCatAr p {
-    font-size: clamp(
-      1.6rem,
-      1.2073298429319372rem + 1.6753926701570678vw,
-      1.8rem
-    );
-  }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1600px) {
-  .RandomMealSection {
-    width: 90%;
-    padding: 1%;
-  }
-  .RandomDishTitle {
-    font-size: clamp(
-      2.4rem,
-      2.0073298429319366rem + 1.6753926701570696vw,
-      2.6rem
-    );
-  }
-  .RandomDishName {
-    font-size: clamp(
-      2.2rem,
-      -3.999999999999992rem + 9.999999999999986vw,
-      2.4rem
-    );
-    margin: -7% 0% 0% 3%;
-  }
-  .RandomDishImg {
-    width: 28%;
-    padding-top: 1%;
-  }
-  .RandomDishCat {
-    font-size: clamp(
-      1.8rem,
-      1.5325471698113209rem + 0.7547169811320753vw,
-      2rem
-    );
-  }
-  .RandomDishCatAr {
-    padding-top: 2%;
-  }
-  .RandomDishCatAr p {
-    font-size: clamp(
-      1.8rem,
-      1.5325471698113209rem + 0.7547169811320753vw,
-      2rem
-    );
-  }
+  font-size: clamp(1.3rem, 3.4vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }

@@ -23,18 +23,15 @@ const RandomMeal = () => {
       <div className="RandomMealSection">
         <h3 className="RandomDishTitle">Meal of the Day</h3>
         <NavLink to={`/detail/${randomDish?.idMeal}`}>
-          <div className="RandomMealBox">
+          <div
+            className="RandomMealBox"
+            style={{ backgroundImage: `url(${randomDish?.strMealThumb})` }}
+          >
             <article className="RandomMealTextBox">
-              <img
-                className="RandomDishImg"
-                src={randomDish?.strMealThumb}
-                alt={randomDish?.strMeal}
-                loading="lazy"
-              />
               <h2 className="RandomDishName">{randomDish?.strMeal}</h2>
               <div className="RandomDishCatAr">
                 <div className="RandomDishCatPoint">
-                  <img className="Ellipse" src={Ellipse} alt="Punkt" />
+                  <img className="Ellipse" src={Ellipse} alt="" />
                   <p className="RandomDishCat">{randomDish?.strCategory}</p>
                 </div>
                 <p className="RandomDishAr">{randomDish?.strArea}</p>
