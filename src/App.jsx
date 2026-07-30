@@ -5,14 +5,27 @@ import FavoritesProvider from "./context/FavoritesProvider";
 import { DEFAULT_AREA } from "./data/areas";
 import { lazy, Suspense, useEffect, useState } from "react";
 
-const Home = lazy(() => import("./pages/Home"));
-const Onboarding = lazy(() => import("./pages/Onboarding"));
-const SearchInput = lazy(() => import("./pages/SearchInput"));
-const SearchAreas = lazy(() => import("./pages/SearchAreas"));
-const SearchCategory = lazy(() => import("./pages/SearchCategory"));
-const Details = lazy(() => import("./pages/Details"));
-const Favorites = lazy(() => import("./pages/Favorites"));
-const Profile = lazy(() => import("./pages/Profile"));
+// Import-Funktionen einmal definieren, damit sie sowohl von lazy() als auch
+// vom Prefetch (siehe useEffect unten) benutzt werden können.
+const routeImports = [
+  () => import("./pages/Home"),
+  () => import("./pages/Onboarding"),
+  () => import("./pages/SearchInput"),
+  () => import("./pages/SearchAreas"),
+  () => import("./pages/SearchCategory"),
+  () => import("./pages/Details"),
+  () => import("./pages/Favorites"),
+  () => import("./pages/Profile"),
+];
+
+const Home = lazy(routeImports[0]);
+const Onboarding = lazy(routeImports[1]);
+const SearchInput = lazy(routeImports[2]);
+const SearchAreas = lazy(routeImports[3]);
+const SearchCategory = lazy(routeImports[4]);
+const Details = lazy(routeImports[5]);
+const Favorites = lazy(routeImports[6]);
+const Profile = lazy(routeImports[7]);
 import {
   CategoryFilterContext,
   SearchbarCategoryContext,
@@ -39,6 +52,19 @@ function App() {
     setTimeout(() => {
       setLoading(false);
     }, 800);
+  }, []);
+
+  // Route-Chunks nach dem Initial-Render im Leerlauf vorladen, damit die
+  // Navigation über die Navbar ohne kurzen Suspense-Loader (türkiser Splash)
+  // erfolgt. Läuft mit niedriger Priorität, blockiert den ersten Paint nicht.
+  useEffect(() => {
+    const prefetchRoutes = () => routeImports.forEach((load) => load());
+    if ("requestIdleCallback" in window) {
+      const id = window.requestIdleCallback(prefetchRoutes);
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = setTimeout(prefetchRoutes, 1500);
+    return () => clearTimeout(id);
   }, []);
 
   return (
